@@ -23,7 +23,23 @@ const crearProducto =  (req, res)=>{
   })
 }
 
+//Llama atodos los productos
+const get_all = (req, res) =>{
+  Producto.find()
+  .then(productos =>res.json(productos))
+  .catch(err => res.json({message:"hubo un error"+err}));
+}
+
+//llama a un producto en especifico por su id
+const get_product = (req, res) =>{
+  Producto.findOne({_id:req.params.id})
+      .then(producto => res.json(producto))
+      .catch(err => res.json({message:"hubo un error"+err}));
+}
+
 
 module.exports = {
-  crearProducto
+  crearProducto,
+  get_all,
+  get_product
 }

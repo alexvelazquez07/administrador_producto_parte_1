@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import axios from 'axios'
+import { Link } from "react-router-dom";
 
 const ProductoFormulario = () => {
 
@@ -32,7 +33,9 @@ const submiHandler = (e) => {
             <label htmlFor=""className='form-label'>Description: </label>
             <input type="text"className='form-control' onChange={(e)=>setDescription(e.target.value)} />
             <button className='btn btn-success mt-3'> Create </button>
+            
         </form>
+        <Link className="btn btn-success mt-3" to="/listarproductos">List Products</Link>
     </div>
   )
 }
